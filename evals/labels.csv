@@ -1,0 +1,52 @@
+review_text,expected_theme
+"App crashes every time I try to download playlists for offline listening. So frustrating.",offline_downloads_broken
+"Why can't I rearrange songs in a playlist anymore? The UI update made this impossible.",playlist_editing_regression
+"Constantly skipping songs randomly. Premium user paying for this.",playback_instability
+"The shuffle feature is not random. It plays the same 20 songs.",shuffle_quality
+"Search has gotten so bad. I can't find songs I literally just listened to.",search_quality_degraded
+"DJ feature is amazing, makes discovering new music actually fun again.",dj_feature_positive
+"Why does Spotify use so much battery on iOS? Drains my phone.",battery_drain
+"Wrapped is the only reason I keep my subscription tbh",wrapped_retention
+"Audiobooks taking over the app and I never use them. Give me back music focus.",audiobook_clutter_complaint
+"Lyrics are out of sync constantly. Was working fine a year ago.",lyrics_sync_broken
+"Playback stops randomly when I lock my phone. Happens 10x a day.",playback_instability
+"Can't queue songs from search results anymore on android. Major regression.",queueing_regression
+"I love that you can pin folders now. Finally.",folder_pinning_positive
+"Spotify Connect to my Sonos keeps disconnecting. Used to work flawlessly.",connect_reliability
+"Why are podcasts mixed into my music recommendations? I don't want podcasts.",podcast_recommendations_unwanted
+"The new home screen is cluttered. Too many sections I don't need.",home_screen_clutter
+"Offline songs disappear randomly. Have to redownload constantly.",offline_downloads_broken
+"Cannot for the life of me figure out how to delete a playlist on the new UI.",ui_discoverability
+"Discover Weekly is no longer good. Used to be the best feature.",recommendation_quality_decline
+"Songs skip and stutter on slow connections instead of buffering.",playback_instability
+"Why is there an ad after every 2 songs now on free tier?",free_tier_ad_load
+"I miss the social features. Friend activity sidebar was useful.",social_features_missing
+"Account got hacked twice this year. Security is a joke.",account_security
+"Can't transfer playback between devices smoothly anymore.",connect_reliability
+"Algorithm keeps suggesting songs I've explicitly disliked. What's the point.",recommendation_quality_decline
+"Family plan management is hidden in 4 menus. Make it obvious.",family_plan_ux
+"The audiobook hours never refresh on time. Customer support is useless.",audiobook_clutter_complaint
+"App is way more responsive on Android after the latest update. Thank you.",performance_positive
+"Why removed the timer for sleep? I used it every night.",feature_removed_complaint
+"Equalizer settings reset every time I close the app on iPhone.",settings_persistence_broken
+"Adding to queue is now buried under 3 taps. Used to be a long press.",queueing_regression
+"AI playlist generator is decent but ignores half my prompts.",ai_playlist_quality
+"The price hike came with no improvements. Where's the value.",pricing_complaint
+"Can we please get a real volume normalization option that actually works.",audio_quality
+"Connection to car bluetooth drops every time I get a notification.",connect_reliability
+"Liked Songs limit is finally gone, this is huge.",feature_added_positive
+"Hate that I can't see album art on the lock screen sometimes.",lock_screen_ui
+"Refunds are impossible to get when you cancel mid-cycle.",billing_complaint
+"Why is the desktop app so much worse than the web player?",desktop_app_quality
+"Suggested songs after my playlist ends are way off topic.",recommendation_quality_decline
+"My downloaded songs work even with no signal which is the only reason I pay.",offline_downloads_positive
+"Volume controls don't work with my AirPods after iOS 18 update.",ios_integration_broken
+"Can't share songs to Instagram stories properly anymore.",sharing_broken
+"The 'made for you' section is just the same 5 playlists every week.",recommendation_repetitive
+"Why does it take 30 seconds to open the app on android?",startup_performance
+"Genuinely the best discovery tool out there still, despite the gripes.",overall_positive
+"Spotify connect to my smart TV is broken for 2 months now.",connect_reliability
+"Hate the new way notifications work. Can't dismiss them properly.",notification_ux
+"Crossfade between songs is shorter than I set it. Bug.",settings_persistence_broken
+"I want my old library view back. The new grid is bad.",ui_change_complaint
+"Login from a new device requires too many verification steps now.",account_security_friction
