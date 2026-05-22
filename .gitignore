@@ -1,0 +1,39 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# secrets
+.env
+
+# local data
+data/*.sqlite
+data/*.db
+data/*.parquet
+data/*.csv
+data/*.json
+!data/.gitkeep
+
+# generated output
+output/*.md
+output/*.html
+!output/.gitkeep
+
+# editor
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# downloaded models
+models/
+*.bin
