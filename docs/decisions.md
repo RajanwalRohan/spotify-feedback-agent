@@ -43,24 +43,23 @@ Using sklearn's built-in HDBSCAN (since 1.3) instead of the standalone
 ## 4. App Store ingestion is best-effort, not load-bearing
 
 Apple has been progressively breaking the public iTunes RSS reviews feed
-since ~2022. As of May 2026, it still returns HTTP 200 for Spotify
-(id=324684580) but with an empty `entries` array - no actual reviews. Tested
-`app-store-scraper` as a fallback and it's unmaintained (pins broken
-urllib3, doesn't import on Python 3.14).
+since ~2022. In testing during May 2026 the same endpoint returned
+~100 reviews one day and an empty `entries` array a few hours later. It's
+flaky, not dead - but it can't be the sole source.
 
-The real options were:
+Real options were:
 - Roll a custom scraper against `amp-api.apps.apple.com` - requires a Bearer
   token scraped from the public webpage, brittle, would break the day Apple
   changes anything
 - Use the App Store Connect API - requires an Apple Developer account ($99/yr)
   and is meant for first-party app owners
-- Drop App Store as a source for v1 and document why
+- Treat the RSS feed as best-effort: use it when it works, fall back gracefully
+  when it doesn't, and never block the pipeline on it
 
-I went with option 3. The pipeline runs on Google Play (Android) + Reddit,
-which together still give a fat enough corpus to find real themes. App Store
-code stays in the repo so the feed lighting back up is a no-op fix. If
-someone wants iOS data badly enough, the Connect API integration is a
-straightforward extension.
+I went with the third option. `app_store.py` issues a warning if the feed
+comes back empty and the pipeline continues with whatever Google Play +
+Reddit return. When the feed does work it's a free ~100 extra iOS reviews
+per run.
 
 This is the kind of "real engineering hits real-world API decay" story that
 PM interviews actually like.
