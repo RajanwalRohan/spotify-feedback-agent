@@ -2,6 +2,7 @@
 import sqlite3
 import json
 import datetime as dt
+from contextlib import closing
 from pathlib import Path
 from .ingest.app_store import Review
 
@@ -34,29 +35,31 @@ def _conn(path: Path = DB_PATH) -> sqlite3.Connection:
 
 def save(reviews: list[Review], path: Path = DB_PATH) -> int:
     """Upsert reviews. Returns number of new rows."""
-    now = dt.datetime.utcnow().isoformat()
+    now = dt.datetime.now(dt.timezone.utc).isoformat()
     new = 0
-    with _conn(path) as c:
+    with closing(_conn(path)) as c, c:
         for r in reviews:
             cur = c.execute("SELECT 1 FROM reviews WHERE id = ?", (r.id,))
             if cur.fetchone():
                 continue
+            # default=str handles datetime objects that come from google-play-scraper's raw dict
             c.execute(
                 "INSERT INTO reviews (id, source, text, rating, created_at, url, raw, fetched_at) "
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
-                (r.id, r.source, r.text, r.rating, r.created_at, r.url, json.dumps(r.raw), now),
+                (r.id, r.source, r.text, r.rating, r.created_at, r.url,
+                 json.dumps(r.raw, default=str), now),
             )
             new += 1
     return new
 
 
 def load_all(path: Path = DB_PATH) -> list[dict]:
-    with _conn(path) as c:
+    with closing(_conn(path)) as c:
         c.row_factory = sqlite3.Row
         rows = c.execute("SELECT id, source, text, rating, created_at, url FROM reviews").fetchall()
     return [dict(r) for r in rows]
 
 
 def count(path: Path = DB_PATH) -> int:
-    with _conn(path) as c:
+    with closing(_conn(path)) as c:
         return c.execute("SELECT COUNT(*) FROM reviews").fetchone()[0]
