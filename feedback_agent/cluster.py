@@ -5,7 +5,7 @@ from sklearn.cluster import HDBSCAN
 
 
 def cluster(embeddings: np.ndarray, min_cluster_size: int = 5, min_samples: int = 2) -> np.ndarray:
-    # embeddings are L2-normalized, so euclidean is monotonic with cosine — fine and faster
+    # embeddings are L2-normalized, so euclidean is monotonic with cosine - fine and faster
     h = HDBSCAN(
         min_cluster_size=min_cluster_size,
         min_samples=min_samples,

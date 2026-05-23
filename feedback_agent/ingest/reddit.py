@@ -36,7 +36,7 @@ def fetch_reddit(subs: list[str] | None = None, pages: int = 4, user_agent: str 
                 p = c.get("data", {})
                 title = p.get("title", "")
                 selftext = p.get("selftext", "")
-                # link posts have no body — skip, they're not feedback signal
+                # link posts have no body - skip, they're not feedback signal
                 if not selftext.strip():
                     continue
 

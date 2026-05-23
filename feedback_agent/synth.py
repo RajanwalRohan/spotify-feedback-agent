@@ -1,7 +1,7 @@
 """The actual agent loop.
 
 For each cluster, we send a sample of reviews to Gemini and ask for a structured
-summary. The agent has two tools — get_more_reviews and lookup_review — so it
+summary. The agent has two tools - get_more_reviews and lookup_review - so it
 can dig in if the sample looks ambiguous.
 
 The loop is intentionally manual (no langchain etc.) so the control flow is
@@ -29,7 +29,7 @@ Tools available:
 - get_more_reviews(n): fetch n more reviews from this cluster if the initial sample is ambiguous
 - lookup_review(review_id): get the full text of one specific review
 
-Use tools sparingly — only when the sample genuinely doesn't reveal the theme.
+Use tools sparingly - only when the sample genuinely doesn't reveal the theme.
 
 When you're ready, respond with ONLY valid JSON matching this schema (no markdown fences):
 {
@@ -59,7 +59,7 @@ def _format_reviews(reviews: list[dict]) -> str:
 
 
 def _parse_json(text: str) -> dict | None:
-    # gemini sometimes still wraps in ```json fences — strip them
+    # gemini sometimes still wraps in ```json fences - strip them
     text = text.strip()
     text = re.sub(r"^```(?:json)?\s*", "", text)
     text = re.sub(r"\s*```$", "", text)
@@ -94,7 +94,7 @@ def synthesize_cluster(cluster_reviews: list[dict], api_key: str | None = None) 
     """Run the agent loop on one cluster. Returns parsed result, or None on failure."""
     api_key = api_key or os.environ.get("GEMINI_API_KEY")
     if not api_key:
-        raise RuntimeError("GEMINI_API_KEY not set — add it to .env")
+        raise RuntimeError("GEMINI_API_KEY not set - add it to .env")
     genai.configure(api_key=api_key)
     model = genai.GenerativeModel(MODEL_NAME, system_instruction=SYSTEM_PROMPT)
 
@@ -129,7 +129,7 @@ def synthesize_cluster(cluster_reviews: list[dict], api_key: str | None = None) 
                 else:
                     history.append(f"Review {rid} not found.")
                 continue
-            # unknown tool — bail
+            # unknown tool - bail
             history.append("Unknown tool. Reply with the final JSON summary now.")
             continue
 

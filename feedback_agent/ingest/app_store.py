@@ -1,7 +1,7 @@
 """iTunes RSS pull for App Store reviews.
 
 Note (2026-05): Apple has been progressively breaking this endpoint. It still
-responds 200 but often returns an empty feed (no `entry` array) — see
+responds 200 but often returns an empty feed (no `entry` array) - see
 docs/decisions.md for the longer story and why we're keeping this code in place
 anyway. If RSS comes back, this works; if not, the pipeline runs on Google Play
 + Reddit and logs a warning.
@@ -72,7 +72,7 @@ def fetch_app_store(app_id: str = "324684580", pages: int = 10, country: str = "
 
     if not out and empty_responses:
         warnings.warn(
-            "iTunes RSS returned no review entries — Apple has been intermittently "
+            "iTunes RSS returned no review entries - Apple has been intermittently "
             "shutting this feed down. See docs/decisions.md."
         )
     return out

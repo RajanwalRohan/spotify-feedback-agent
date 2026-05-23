@@ -13,7 +13,7 @@ def render_brief(syntheses: list[dict], total_reviews: int) -> str:
     today = dt.date.today().isoformat()
 
     lines = [
-        f"# Spotify Feedback Brief — {today}",
+        f"# Spotify Feedback Brief - {today}",
         "",
         f"_Synthesized from {total_reviews} reviews across App Store, Google Play, and Reddit._",
         f"_{len(ranked)} themes surfaced. Ranked by severity × log(mentions)._",

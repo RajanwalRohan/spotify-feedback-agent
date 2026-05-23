@@ -1,12 +1,12 @@
 """Evaluation script. Two automated checks:
 
-1. Adjusted Rand Index — how well do the predicted clusters match the labeled
+1. Adjusted Rand Index - how well do the predicted clusters match the labeled
    themes overall? 1.0 is perfect, ~0 is random.
-2. Cluster purity — within each predicted cluster, what fraction of reviews
+2. Cluster purity - within each predicted cluster, what fraction of reviews
    share the modal expected theme? 1.0 means every predicted cluster is
    internally consistent (even if the algorithm split one theme into multiple).
 
-We deliberately don't try to LLM-judge the synthesis here — that's a manual
+We deliberately don't try to LLM-judge the synthesis here - that's a manual
 spot-check pass on the generated brief vs. the labels, documented in the README.
 """
 import csv
